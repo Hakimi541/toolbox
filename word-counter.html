@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter — ToolBox</title>
+<link rel="stylesheet" href="tool-style.css">
+<style>
+.counter-wrap{max-width:900px;margin:32px auto;padding:0 20px}
+textarea{width:100%;min-height:320px;padding:18px;border:1px solid #d9dee8;border-radius:16px;font:inherit;font-size:16px;resize:vertical;outline:none;background:var(--card,#fff);color:inherit}
+textarea:focus{border-color:#667eea}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.stat{padding:18px;border-radius:14px;background:var(--card,#fff);border:1px solid #e5e7eb;text-align:center}
+.stat strong{display:block;font-size:26px}.stat span{font-size:13px;opacity:.7}
+.clear{margin-top:10px;padding:11px 18px;border:0;border-radius:10px;cursor:pointer}
+@media(max-width:650px){.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="counter-wrap">
+<a href="index.html" class="back">← Back to ToolBox</a>
+<h1>Word Counter</h1>
+<p>Count words, characters, sentences and paragraphs instantly.</p>
+<textarea id="text" placeholder="Type or paste your text here..."></textarea>
+<div class="stats">
+<div class="stat"><strong id="words">0</strong><span>Words</span></div>
+<div class="stat"><strong id="chars">0</strong><span>Characters</span></div>
+<div class="stat"><strong id="charsNoSpace">0</strong><span>Characters (no spaces)</span></div>
+<div class="stat"><strong id="sentences">0</strong><span>Sentences</span></div>
+</div>
+<button class="clear" id="clear">Clear</button>
+</div>
+<script>
+const text=document.getElementById('text');
+function update(){
+ const v=text.value;
+ const words=v.trim()?v.trim().split(/\s+/).length:0;
+ const sentences=v.trim()?v.split(/[.!?]+/).filter(x=>x.trim()).length:0;
+ document.getElementById('words').textContent=words;
+ document.getElementById('chars').textContent=v.length;
+ document.getElementById('charsNoSpace').textContent=v.replace(/\s/g,'').length;
+ document.getElementById('sentences').textContent=sentences;
+}
+text.addEventListener('input',update);
+document.getElementById('clear').onclick=()=>{text.value='';update();text.focus()};
+</script>
+</body>
+</html>

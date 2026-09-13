@@ -1,0 +1,6 @@
+const input=document.getElementById("search"),cards=[...document.querySelectorAll(".card")],count=document.getElementById("count"),empty=document.getElementById("empty");
+function filter(q){q=q.toLowerCase().trim();let n=0;cards.forEach(c=>{let ok=c.dataset.name.includes(q);c.style.display=ok?"flex":"none";if(ok)n++});count.textContent=n+" tool"+(n===1?"":"s");empty.hidden=n>0}
+input.oninput=()=>filter(input.value);
+document.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{input.value=b.dataset.q;filter(input.value);document.getElementById("tools").scrollIntoView({behavior:"smooth"})});
+document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{let cat=b.dataset.cat.toLowerCase();let n=0;cards.forEach(c=>{let ok=c.querySelector("small")?.textContent.toLowerCase()===cat;c.style.display=ok?"flex":"none";if(ok)n++});count.textContent=n+" tools";empty.hidden=n>0;document.getElementById("tools").scrollIntoView({behavior:"smooth"})});
+document.getElementById("theme").onclick=()=>{document.body.classList.toggle("dark");document.getElementById("theme").textContent=document.body.classList.contains("dark")?"☀":"☾"};
