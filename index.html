@@ -3,103 +3,346 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ToolBox — free online tools for images, text, calculations and security. Fast, simple and privacy-friendly.">
-<meta name="keywords" content="free online tools, image compressor, image resizer, word counter, percentage calculator, password generator, case converter, calculator, unit converter, text cleaner, number to words">
+
+<meta name="description" content="ToolBox offers free online tools for image compression, image resizing, word counting, text conversion, calculations, unit conversion and more. Fast, simple and easy to use.">
+
+<meta name="robots" content="index, follow">
+
 <meta name="theme-color" content="#111827">
-<title>ToolBox — Free Online Tools</title>
+
+<title>ToolBox – Free Online Tools for Images, Text & Calculations</title>
+
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/">
+
 <link rel="stylesheet" href="home.css">
 </head>
+
 <body>
+
 <header class="site-header">
   <div class="nav container">
-    <a class="brand" href="index.html"><span class="brand-mark">T</span><span>ToolBox</span></a>
+    <a class="brand" href="index.html">
+      <span class="brand-mark">T</span>
+      <span>ToolBox</span>
+    </a>
+
     <nav>
       <a href="#tools">Tools</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
     </nav>
+
     <button id="theme" class="icon-btn" aria-label="Toggle dark mode">☾</button>
   </div>
 </header>
 
 <main>
+
 <section class="hero">
   <div class="container hero-inner">
+
     <div class="badge">⚡ Free • Fast • Easy to use</div>
+
     <h1>Everyday tools.<br><span>One simple place.</span></h1>
-    <p>Compress images, count words, calculate percentages, generate passwords and more — right in your browser.</p>
+
+    <p>
+      Compress images, count words, calculate percentages,
+      generate passwords and more — right in your browser.
+    </p>
+
     <div class="hero-search">
-      <span>⌕</span><input id="search" type="search" placeholder="Search for a tool..." aria-label="Search tools">
+      <span>⌕</span>
+      <input
+        id="search"
+        type="search"
+        placeholder="Search for a tool..."
+        aria-label="Search tools"
+      >
     </div>
+
     <div class="quick">
-      <a href="#images">Images</a><a href="#text">Text</a><a href="#calculators">Calculators</a><a href="#security">Security</a>
+      <a href="#images">Images</a>
+      <a href="#text">Text</a>
+      <a href="#calculators">Calculators</a>
+      <a href="#security">Security</a>
     </div>
+
   </div>
 </section>
 
 <section id="tools" class="tools-section container">
+
   <div class="section-head">
-    <div><p class="eyebrow">TOOLBOX</p><h2>Popular tools</h2></div>
+    <div>
+      <p class="eyebrow">TOOLBOX</p>
+      <h2>Popular tools</h2>
+    </div>
+
     <p id="count"></p>
   </div>
 
-  <div id="images" class="category"><h3>Images</h3><div class="grid">
-    <a class="tool-card" data-name="image compressor" href="image-compressor.html"><span class="tool-icon">🗜️</span><h4>Image Compressor</h4><p>Reduce image file size while keeping good quality.</p><span class="use">Use tool →</span></a>
-    <a class="tool-card" data-name="image resizer" href="image-resizer.html"><span class="tool-icon">↔️</span><h4>Image Resizer</h4><p>Resize JPG, PNG and WebP images in seconds.</p><span class="use">Use tool →</span></a>
-  </div></div>
+  <div id="images" class="category">
+    <h3>Images</h3>
 
-  <div id="text" class="category"><h3>Text</h3><div class="grid">
-    <a class="tool-card" data-name="word counter" href="word-counter.html"><span class="tool-icon">📝</span><h4>Word Counter</h4><p>Count words, characters and sentences instantly.</p><span class="use">Use tool →</span></a>
-    <a class="tool-card" data-name="case converter" href="case-converter.html"><span class="tool-icon">Aa</span><h4>Case Converter</h4><p>Convert text to upper, lower and title case.</p><span class="use">Use tool →</span></a>
-  </div></div>
+    <div class="grid">
 
-  <div id="calculators" class="category"><h3>Calculators</h3><div class="grid">
-    <a class="tool-card" data-name="percentage calculator" href="percentage-calculator.html"><span class="tool-icon">%</span><h4>Percentage Calculator</h4><p>Calculate percentages and percentage changes.</p><span class="use">Use tool →</span></a>
-    <a class="tool-card" data-name="calculator" href="calculator.html"><span class="tool-icon">🧮</span><h4>Calculator</h4><p>A clean calculator for everyday maths.</p><span class="use">Use tool →</span></a>
-  </div></div>
+      <a class="tool-card"
+         data-name="image compressor"
+         href="image-compressor.html">
 
-  <div id="security" class="category"><h3>Security</h3><div class="grid">
-    <a class="tool-card" data-name="password generator" href="password-generator.html"><span class="tool-icon">🔐</span><h4>Password Generator</h4><p>Create strong random passwords locally.</p><span class="use">Use tool →</span></a>
-    <a class="tool-card" data-name="unit converter" href="unit-converter.html"><span class="tool-icon">↗</span><h4>Unit Converter</h4><p>Convert length, weight and temperature.</p><span class="use">Use tool →</span></a>
-  </div></div>
+        <span class="tool-icon">🗜️</span>
+        <h4>Image Compressor</h4>
+        <p>Reduce image file size while keeping good quality.</p>
+        <span class="use">Use tool →</span>
 
-  <div id="extra" class="category"><h3>More tools</h3><div class="grid">
-    <a class="tool-card" data-name="text cleaner" href="text-cleaner.html"><span class="tool-icon">🧹</span><h4>Text Cleaner</h4><p>Remove extra spaces and blank lines from text.</p><span class="use">Use tool →</span></a>
-    <a class="tool-card" data-name="number to words" href="number-to-words.html"><span class="tool-icon">🔢</span><h4>Number to Words</h4><p>Convert whole numbers into English words.</p><span class="use">Use tool →</span></a>
-  </div></div>
+      </a>
+
+      <a class="tool-card"
+         data-name="image resizer"
+         href="image-resizer.html">
+
+        <span class="tool-icon">↔️</span>
+        <h4>Image Resizer</h4>
+        <p>Resize JPG, PNG and WebP images in seconds.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+    </div>
+  </div>
+
+  <div id="text" class="category">
+    <h3>Text</h3>
+
+    <div class="grid">
+
+      <a class="tool-card"
+         data-name="word counter"
+         href="word-counter.html">
+
+        <span class="tool-icon">📝</span>
+        <h4>Word Counter</h4>
+        <p>Count words, characters and sentences instantly.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+      <a class="tool-card"
+         data-name="case converter"
+         href="case-converter.html">
+
+        <span class="tool-icon">Aa</span>
+        <h4>Case Converter</h4>
+        <p>Convert text to upper, lower and title case.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+    </div>
+  </div>
+
+  <div id="calculators" class="category">
+    <h3>Calculators</h3>
+
+    <div class="grid">
+
+      <a class="tool-card"
+         data-name="percentage calculator"
+         href="percentage-calculator.html">
+
+        <span class="tool-icon">%</span>
+        <h4>Percentage Calculator</h4>
+        <p>Calculate percentages and percentage changes.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+      <a class="tool-card"
+         data-name="calculator"
+         href="calculator.html">
+
+        <span class="tool-icon">🧮</span>
+        <h4>Calculator</h4>
+        <p>A clean calculator for everyday maths.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+    </div>
+  </div>
+
+  <div id="security" class="category">
+    <h3>Security</h3>
+
+    <div class="grid">
+
+      <a class="tool-card"
+         data-name="password generator"
+         href="password-generator.html">
+
+        <span class="tool-icon">🔐</span>
+        <h4>Password Generator</h4>
+        <p>Create strong random passwords locally.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+      <a class="tool-card"
+         data-name="unit converter"
+         href="unit-converter.html">
+
+        <span class="tool-icon">↗</span>
+        <h4>Unit Converter</h4>
+        <p>Convert length, weight and temperature.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+    </div>
+  </div>
+
+  <div id="extra" class="category">
+    <h3>More tools</h3>
+
+    <div class="grid">
+
+      <a class="tool-card"
+         data-name="text cleaner"
+         href="text-cleaner.html">
+
+        <span class="tool-icon">🧹</span>
+        <h4>Text Cleaner</h4>
+        <p>Remove extra spaces and blank lines from text.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+      <a class="tool-card"
+         data-name="number to words"
+         href="number-to-words.html">
+
+        <span class="tool-icon">🔢</span>
+        <h4>Number to Words</h4>
+        <p>Convert whole numbers into English words.</p>
+        <span class="use">Use tool →</span>
+
+      </a>
+
+    </div>
+  </div>
+
 </section>
 
 <section class="trust">
+
   <div class="container trust-grid">
-    <div><strong>🔒 Privacy-friendly</strong><span>Current tools process files in your browser.</span></div>
-    <div><strong>⚡ No sign-up</strong><span>Open a tool and get started immediately.</span></div>
-    <div><strong>📱 Works anywhere</strong><span>Designed for phones, tablets and computers.</span></div>
+
+    <div>
+      <strong>🔒 Privacy-friendly</strong>
+      <span>Current tools process files in your browser.</span>
+    </div>
+
+    <div>
+      <strong>⚡ No sign-up</strong>
+      <span>Open a tool and get started immediately.</span>
+    </div>
+
+    <div>
+      <strong>📱 Works anywhere</strong>
+      <span>Designed for phones, tablets and computers.</span>
+    </div>
+
   </div>
+
 </section>
+
 </main>
 
 <footer>
+
   <div class="container footer-inner">
-    <div><a class="brand" href="index.html"><span class="brand-mark">T</span><span>ToolBox</span></a><p>Useful first. Monetized second.</p></div>
-    <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a></div>
+
+    <div>
+      <a class="brand" href="index.html">
+        <span class="brand-mark">T</span>
+        <span>ToolBox</span>
+      </a>
+
+      <p>Useful first. Monetized second.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+
   </div>
-  <div class="container copyright">© 2026 ToolBox. All rights reserved.</div>
+
+  <div class="container copyright">
+    © 2026 ToolBox. All rights reserved.
+  </div>
+
 </footer>
 
 <script>
-const search=document.getElementById('search'), cards=[...document.querySelectorAll('.tool-card')], count=document.getElementById('count');
-function filter(){
- const q=search.value.trim().toLowerCase(); let shown=0;
- cards.forEach(c=>{const ok=!q||c.dataset.name.includes(q);c.style.display=ok?'':'none';if(ok)shown++});
- count.textContent=q?`${shown} tool${shown===1?'':'s'} found`:'';
+
+const search = document.getElementById('search');
+const cards = [...document.querySelectorAll('.tool-card')];
+const count = document.getElementById('count');
+
+function filter() {
+
+  const q = search.value.trim().toLowerCase();
+  let shown = 0;
+
+  cards.forEach(c => {
+
+    const ok = !q || c.dataset.name.includes(q);
+
+    c.style.display = ok ? '' : 'none';
+
+    if (ok) shown++;
+
+  });
+
+  count.textContent =
+    q ? `${shown} tool${shown === 1 ? '' : 's'} found` : '';
+
 }
-search.addEventListener('input',filter);
-const theme=document.getElementById('theme');
-if(localStorage.getItem('toolbox-theme')==='dark')document.body.classList.add('dark');
-function updateTheme(){theme.textContent=document.body.classList.contains('dark')?'☀':'☾'}
-theme.onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('toolbox-theme',document.body.classList.contains('dark')?'dark':'light');updateTheme()};
+
+search.addEventListener('input', filter);
+
+const theme = document.getElementById('theme');
+
+if (localStorage.getItem('toolbox-theme') === 'dark') {
+  document.body.classList.add('dark');
+}
+
+function updateTheme() {
+
+  theme.textContent =
+    document.body.classList.contains('dark') ? '☀' : '☾';
+
+}
+
+theme.onclick = () => {
+
+  document.body.classList.toggle('dark');
+
+  localStorage.setItem(
+    'toolbox-theme',
+    document.body.classList.contains('dark') ? 'dark' : 'light'
+  );
+
+  updateTheme();
+
+};
+
 updateTheme();
+
 </script>
+
 </body>
 </html>
