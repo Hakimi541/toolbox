@@ -1,1 +1,95 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Text Cleaner — ToolBox</title><link rel="stylesheet" href="tool-style.css"></head><body><nav class="nav"><a class="logo" href="index.html"><span>◆</span>ToolBox</a><a class="back" href="index.html">← All tools</a></nav><section class="hero"><div class="hero-badge">TEXT TOOL</div><h1>Text <em>Cleaner</em></h1><p>Remove extra spaces and blank lines from pasted text.</p></section><main class="compressor"><div class="panel"><textarea id="text" placeholder="Paste text here..." style="width:100%;min-height:230px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font:inherit;resize:vertical;outline:none"></textarea><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px"><button class="compress" onclick="clean()">Clean text</button><button class="compress" style="background:#333" onclick="copyText()">Copy result</button></div><p id="status" class="status"></p></div></main><footer><span>ToolBox</span><a href="index.html">Back to home</a></footer><script>const t=document.getElementById('text'),s=document.getElementById('status');function clean(){t.value=t.value.split('\n').map(x=>x.trim().replace(/[ \t]+/g,' ')).filter(Boolean).join('\n');s.textContent='Text cleaned.'}async function copyText(){try{await navigator.clipboard.writeText(t.value);s.textContent='Copied!'}catch{}}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Free online text cleaner. Remove extra spaces, blank lines and unwanted formatting from text instantly. Simple, fast and easy to use.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/text-cleaner.html">
+
+<title>Free Text Cleaner – Remove Extra Spaces & Blank Lines | ToolBox</title>
+
+<link rel="stylesheet" href="tool-style.css">
+</head>
+
+<body>
+
+<nav class="nav">
+<a class="logo" href="index.html"><span>◆</span>ToolBox</a>
+<a class="back" href="index.html">← All tools</a>
+</nav>
+
+<section class="hero">
+<div class="hero-badge">TEXT TOOL</div>
+
+<h1>Text <em>Cleaner</em></h1>
+
+<p>Remove extra spaces and blank lines from pasted text.</p>
+</section>
+
+<main class="compressor">
+
+<div class="panel">
+
+<textarea
+id="text"
+placeholder="Paste text here..."
+style="width:100%;min-height:230px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font:inherit;resize:vertical;outline:none"
+></textarea>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px">
+
+<button class="compress" onclick="clean()">
+Clean text
+</button>
+
+<button class="compress" style="background:#333" onclick="copyText()">
+Copy result
+</button>
+
+</div>
+
+<p id="status" class="status"></p>
+
+</div>
+
+</main>
+
+<footer>
+<span>ToolBox</span>
+<a href="index.html">Back to home</a>
+</footer>
+
+<script>
+
+const t=document.getElementById('text'),
+s=document.getElementById('status');
+
+function clean(){
+
+t.value=t.value
+.split('\n')
+.map(x=>x.trim().replace(/[ \t]+/g,' '))
+.filter(Boolean)
+.join('\n');
+
+s.textContent='Text cleaned.';
+
+}
+
+async function copyText(){
+
+try{
+
+await navigator.clipboard.writeText(t.value);
+s.textContent='Copied!';
+
+}catch{}
+
+}
+
+</script>
+
+</body>
+</html>
