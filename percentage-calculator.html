@@ -3,47 +3,165 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Percentage Calculator — ToolBox</title>
+
+<meta name="description" content="Free online percentage calculator. Calculate percentages, percentage increases, decreases and percentage changes quickly and easily.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/percentage-calculator.html">
+
+<title>Percentage Calculator – Calculate Percentages Online | ToolBox</title>
+
 <link rel="stylesheet" href="tool-style.css">
+
 <style>
 .calc-wrap{max-width:850px;margin:32px auto;padding:0 20px}
 .card{padding:22px;border:1px solid #e5e7eb;border-radius:16px;margin:18px 0;background:var(--card,#fff)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-label{font-size:14px;font-weight:600}input{width:100%;box-sizing:border-box;padding:13px;margin-top:7px;border:1px solid #d9dee8;border-radius:10px;font:inherit}
+label{font-size:14px;font-weight:600}
+input{width:100%;box-sizing:border-box;padding:13px;margin-top:7px;border:1px solid #d9dee8;border-radius:10px;font:inherit}
 button{margin-top:14px;padding:12px 18px;border:0;border-radius:10px;cursor:pointer}
 .result{margin-top:15px;padding:14px;border-radius:10px;background:#f3f4f6;font-weight:600;min-height:22px}
 @media(max-width:650px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
+
 <body>
+
 <div class="calc-wrap">
+
 <a href="index.html" class="back">← Back to ToolBox</a>
+
 <h1>Percentage Calculator</h1>
+
 <p>Calculate percentages, increases and decreases quickly.</p>
 
 <div class="card">
+
 <h2>What is X% of Y?</h2>
-<div class="grid"><label>Percentage X<input id="x1" type="number" placeholder="e.g. 15"></label><label>Number Y<input id="y1" type="number" placeholder="e.g. 200"></label></div>
-<button onclick="calc1()">Calculate</button><div class="result" id="r1"></div>
+
+<div class="grid">
+
+<label>
+Percentage X
+<input id="x1" type="number" placeholder="e.g. 15">
+</label>
+
+<label>
+Number Y
+<input id="y1" type="number" placeholder="e.g. 200">
+</label>
+
+</div>
+
+<button onclick="calc1()">Calculate</button>
+
+<div class="result" id="r1"></div>
+
 </div>
 
 <div class="card">
+
 <h2>X is what percent of Y?</h2>
-<div class="grid"><label>Number X<input id="x2" type="number" placeholder="e.g. 30"></label><label>Number Y<input id="y2" type="number" placeholder="e.g. 200"></label></div>
-<button onclick="calc2()">Calculate</button><div class="result" id="r2"></div>
+
+<div class="grid">
+
+<label>
+Number X
+<input id="x2" type="number" placeholder="e.g. 30">
+</label>
+
+<label>
+Number Y
+<input id="y2" type="number" placeholder="e.g. 200">
+</label>
+
+</div>
+
+<button onclick="calc2()">Calculate</button>
+
+<div class="result" id="r2"></div>
+
 </div>
 
 <div class="card">
+
 <h2>Percentage change</h2>
-<div class="grid"><label>Original value<input id="old" type="number" placeholder="e.g. 100"></label><label>New value<input id="new" type="number" placeholder="e.g. 125"></label></div>
-<button onclick="calc3()">Calculate</button><div class="result" id="r3"></div>
+
+<div class="grid">
+
+<label>
+Original value
+<input id="old" type="number" placeholder="e.g. 100">
+</label>
+
+<label>
+New value
+<input id="new" type="number" placeholder="e.g. 125">
+</label>
+
 </div>
+
+<button onclick="calc3()">Calculate</button>
+
+<div class="result" id="r3"></div>
+
 </div>
+
+</div>
+
 <script>
-const n=id=>parseFloat(document.getElementById(id).value);
-function calc1(){let x=n('x1'),y=n('y1');document.getElementById('r1').textContent=Number.isFinite(x)&&Number.isFinite(y)?`${x}% of ${y} = ${(x/100*y).toLocaleString()}`:'Enter both values.'}
-function calc2(){let x=n('x2'),y=n('y2');document.getElementById('r2').textContent=Number.isFinite(x)&&Number.isFinite(y)&&y!==0?`${x} is ${(x/y*100).toFixed(2)}% of ${y}.`:'Enter valid values.'}
-function calc3(){let a=n('old'),b=n('new');if(!Number.isFinite(a)||!Number.isFinite(b)||a===0){document.getElementById('r3').textContent='Enter valid values.';return}let p=(b-a)/Math.abs(a)*100;document.getElementById('r3').textContent=`${p>=0?'Increase':'Decrease'} of ${Math.abs(p).toFixed(2)}%.`}
+
+const n = id => parseFloat(document.getElementById(id).value);
+
+function calc1(){
+
+let x = n('x1'),
+    y = n('y1');
+
+document.getElementById('r1').textContent =
+Number.isFinite(x) && Number.isFinite(y)
+? `${x}% of ${y} = ${(x/100*y).toLocaleString()}`
+: 'Enter both values.';
+
+}
+
+function calc2(){
+
+let x = n('x2'),
+    y = n('y2');
+
+document.getElementById('r2').textContent =
+Number.isFinite(x) &&
+Number.isFinite(y) &&
+y !== 0
+? `${x} is ${(x/y*100).toFixed(2)}% of ${y}.`
+: 'Enter valid values.';
+
+}
+
+function calc3(){
+
+let a = n('old'),
+    b = n('new');
+
+if(!Number.isFinite(a) || !Number.isFinite(b) || a === 0){
+
+document.getElementById('r3').textContent =
+'Enter valid values.';
+
+return;
+
+}
+
+let p = (b-a)/Math.abs(a)*100;
+
+document.getElementById('r3').textContent =
+`${p>=0?'Increase':'Decrease'} of ${Math.abs(p).toFixed(2)}%.`;
+
+}
+
 </script>
+
 </body>
 </html>
