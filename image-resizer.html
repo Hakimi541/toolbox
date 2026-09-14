@@ -1,7 +1,165 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image Resizer — ToolBox</title><link rel="stylesheet" href="tool-style.css"></head><body>
-<header class="nav"><a class="logo" href="index.html"><span>✦</span> ToolBox</a><a class="back" href="index.html">← All tools</a></header><main><section class="hero"><div class="hero-badge">⚡ 100% in your browser</div><h1>Image <em>Resizer</em></h1><p>Resize photos to exact dimensions without uploading them.</p></section>
-<section class="compressor"><label class="dropzone" id="dropzone" for="fileInput"><input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp"><div class="upload-icon">↔</div><h2>Drop an image here</h2><p>or <strong>browse your device</strong></p><small>JPG, PNG or WebP • Up to 20 MB</small></label>
-<div class="panel" id="panel" hidden><div class="file-row"><div class="thumb"><img id="preview"></div><div class="file-info"><strong id="fileName"></strong><span id="originalSize"></span></div><button class="change" id="changeBtn">Change</button></div>
-<div class="controls"><div class="control"><div class="control-head"><label>Width (px)</label></div><input id="width" type="number" min="1" max="10000"></div><div class="control"><div class="control-head"><label>Height (px)</label></div><input id="height" type="number" min="1" max="10000"></div><div class="control"><div class="control-head"><label>Keep proportions</label></div><input id="lock" type="checkbox" checked></div><div class="control"><div class="control-head"><label>Quality</label><span id="qualityValue">85%</span></div><input id="quality" type="range" min="10" max="95" value="85"></div><div class="control"><div class="control-head"><label>Format</label></div><select id="format"><option value="image/jpeg">JPG</option><option value="image/webp">WebP</option><option value="image/png">PNG</option></select></div></div>
-<button class="compress" id="resizeBtn">Resize image <span>→</span></button><div class="status" id="status"></div><div class="result" id="result" hidden><div class="result-card"><span>Original</span><strong id="before">—</strong></div><div class="arrow">→</div><div class="result-card"><span>New file</span><strong id="after">—</strong></div><a class="download" id="download">Download image ↓</a></div></div></section>
-<section class="privacy"><div>🔒</div><div><strong>Your image stays on your device.</strong><p>Resizing happens locally in your browser.</p></div></section></main><footer>© 2026 ToolBox <span>Built to be useful.</span></footer><script src="resizer.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="description" content="Resize JPG, PNG and WebP images online for free. Change image dimensions to exact sizes while keeping proportions. Fast, private and easy to use.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/image-resizer.html">
+
+<title>Free Image Resizer – Resize JPG, PNG & WebP Images | ToolBox</title>
+
+<link rel="stylesheet" href="tool-style.css">
+</head>
+
+<body>
+
+<header class="nav">
+<a class="logo" href="index.html"><span>✦</span> ToolBox</a>
+<a class="back" href="index.html">← All tools</a>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="hero-badge">⚡ 100% in your browser</div>
+<h1>Image <em>Resizer</em></h1>
+<p>Resize photos to exact dimensions without uploading them.</p>
+</section>
+
+<section class="compressor">
+
+<label class="dropzone" id="dropzone" for="fileInput">
+
+<input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp">
+
+<div class="upload-icon">↔</div>
+
+<h2>Drop an image here</h2>
+<p>or <strong>browse your device</strong></p>
+
+<small>JPG, PNG or WebP • Up to 20 MB</small>
+
+</label>
+
+<div class="panel" id="panel" hidden>
+
+<div class="file-row">
+
+<div class="thumb">
+<img id="preview">
+</div>
+
+<div class="file-info">
+<strong id="fileName"></strong>
+<span id="originalSize"></span>
+</div>
+
+<button class="change" id="changeBtn">Change</button>
+
+</div>
+
+<div class="controls">
+
+<div class="control">
+<div class="control-head">
+<label>Width (px)</label>
+</div>
+<input id="width" type="number" min="1" max="10000">
+</div>
+
+<div class="control">
+<div class="control-head">
+<label>Height (px)</label>
+</div>
+<input id="height" type="number" min="1" max="10000">
+</div>
+
+<div class="control">
+<div class="control-head">
+<label>Keep proportions</label>
+</div>
+<input id="lock" type="checkbox" checked>
+</div>
+
+<div class="control">
+
+<div class="control-head">
+<label>Quality</label>
+<span id="qualityValue">85%</span>
+</div>
+
+<input id="quality" type="range" min="10" max="95" value="85">
+
+</div>
+
+<div class="control">
+
+<div class="control-head">
+<label>Format</label>
+</div>
+
+<select id="format">
+<option value="image/jpeg">JPG</option>
+<option value="image/webp">WebP</option>
+<option value="image/png">PNG</option>
+</select>
+
+</div>
+
+</div>
+
+<button class="compress" id="resizeBtn">
+Resize image <span>→</span>
+</button>
+
+<div class="status" id="status"></div>
+
+<div class="result" id="result" hidden>
+
+<div class="result-card">
+<span>Original</span>
+<strong id="before">—</strong>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="result-card">
+<span>New file</span>
+<strong id="after">—</strong>
+</div>
+
+<a class="download" id="download">
+Download image ↓
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="privacy">
+
+<div>🔒</div>
+
+<div>
+<strong>Your image stays on your device.</strong>
+<p>Resizing happens locally in your browser.</p>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+© 2026 ToolBox <span>Built to be useful.</span>
+</footer>
+
+<script src="resizer.js"></script>
+
+</body>
+</html>
