@@ -1,1 +1,132 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calculator — ToolBox</title><link rel="stylesheet" href="tool-style.css"></head><body><nav class="nav"><a class="logo" href="index.html"><span>◆</span>ToolBox</a><a class="back" href="index.html">← All tools</a></nav><section class="hero"><div class="hero-badge">CALCULATOR</div><h1>Basic <em>Calculator</em></h1><p>Simple everyday calculations, right in your browser.</p></section><main class="compressor"><div class="panel"><input id="display" readonly value="0" style="width:100%;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font-size:28px;text-align:right"><div id="keys" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px"></div></div></main><footer><span>ToolBox</span><a href="index.html">Back to home</a></footer><script>const d=document.getElementById('display'),keys=document.getElementById('keys');['7','8','9','÷','4','5','6','×','1','2','3','−','0','.','C','+','(',')','⌫','='].forEach(k=>{let b=document.createElement('button');b.textContent=k;b.className='compress';b.style.background=k==='='?'var(--accent)':'#333';b.onclick=()=>press(k);keys.appendChild(b)});let expr='';function press(k){if(k==='C'){expr='';d.value='0';return}if(k==='⌫'){expr=expr.slice(0,-1);d.value=expr||'0';return}if(k==='='){try{let e=expr.replaceAll('÷','/').replaceAll('×','*').replaceAll('−','-');if(!/^[0-9+\-*/().\s]+$/.test(e))throw 0;let r=Function('return '+e)();expr=String(r);d.value=expr}catch{d.value='Error';expr=''}return}expr+=k;d.value=expr}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Free online basic calculator for everyday math. Perform addition, subtraction, multiplication, division and other simple calculations quickly in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/calculator.html">
+
+<title>Free Online Calculator – Basic Math Calculator | ToolBox</title>
+
+<link rel="stylesheet" href="tool-style.css">
+</head>
+
+<body>
+
+<nav class="nav">
+<a class="logo" href="index.html"><span>◆</span>ToolBox</a>
+<a class="back" href="index.html">← All tools</a>
+</nav>
+
+<section class="hero">
+<div class="hero-badge">CALCULATOR</div>
+
+<h1>Basic <em>Calculator</em></h1>
+
+<p>Simple everyday calculations, right in your browser.</p>
+</section>
+
+<main class="compressor">
+
+<div class="panel">
+
+<input
+id="display"
+readonly
+value="0"
+style="width:100%;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);font-size:28px;text-align:right"
+>
+
+<div
+id="keys"
+style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:15px"
+></div>
+
+</div>
+
+</main>
+
+<footer>
+<span>ToolBox</span>
+<a href="index.html">Back to home</a>
+</footer>
+
+<script>
+
+const d=document.getElementById('display'),
+keys=document.getElementById('keys');
+
+[
+'7','8','9','÷',
+'4','5','6','×',
+'1','2','3','−',
+'0','.','C','+',
+'(',')','⌫','='
+].forEach(k=>{
+
+let b=document.createElement('button');
+
+b.textContent=k;
+b.className='compress';
+b.style.background=k==='='?'var(--accent)':'#333';
+
+b.onclick=()=>press(k);
+
+keys.appendChild(b);
+
+});
+
+let expr='';
+
+function press(k){
+
+if(k==='C'){
+expr='';
+d.value='0';
+return;
+}
+
+if(k==='⌫'){
+expr=expr.slice(0,-1);
+d.value=expr||'0';
+return;
+}
+
+if(k==='='){
+
+try{
+
+let e=expr
+.replaceAll('÷','/')
+.replaceAll('×','*')
+.replaceAll('−','-');
+
+if(!/^[0-9+\-*/().\s]+$/.test(e))
+throw 0;
+
+let r=Function('return '+e)();
+
+expr=String(r);
+d.value=expr;
+
+}catch{
+
+d.value='Error';
+expr='';
+
+}
+
+return;
+}
+
+expr+=k;
+d.value=expr;
+
+}
+
+</script>
+
+</body>
+</html>
