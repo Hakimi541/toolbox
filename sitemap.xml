@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://YOUR-DOMAIN.com/</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/image-compressor.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/image-resizer.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/word-counter.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/percentage-calculator.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/password-generator.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/about.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/contact.html</loc></url>
-  <url><loc>https://YOUR-DOMAIN.com/privacy.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/about.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/contact.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/privacy.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/image-compressor.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/image-resizer.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/word-counter.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/percentage-calculator.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/password-generator.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/case-converter.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/calculator.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/unit-converter.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/text-cleaner.html</loc></url>
+  <url><loc>https://hakimi541.github.io/toolbox/number-to-words.html</loc></url>
 </urlset>
