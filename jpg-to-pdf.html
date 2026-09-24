@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Convert JPG and PNG images to a PDF online for free. Combine images into one PDF directly in your browser. Fast, private and easy to use.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hakimi541.github.io/toolbox/jpg-to-pdf.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>JPG to PDF Converter – Convert Images to PDF | ToolBox</title>
+<link rel="stylesheet" href="tool-style.css">
+<style>
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.page-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.page-card img{display:block;width:100%;height:220px;object-fit:contain;border-radius:8px;background:#eee}
+.page-label{font-size:12px;font-weight:700;margin:10px 0 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.remove-btn{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:9px;cursor:pointer;font-weight:700}
+.remove-btn:hover{filter:brightness(.96)}
+#fileInput{display:none}
+.add-btn{display:block;text-align:center;background:var(--accent);color:#fff;border-radius:12px;padding:14px;font-size:15px;font-weight:700;cursor:pointer}
+.action-row{display:flex;gap:10px;margin-top:14px}
+.action-row button{flex:1;border:0;border-radius:11px;padding:13px;font-weight:700;cursor:pointer}
+.primary{background:var(--accent);color:#fff}
+.secondary{background:var(--bg);color:var(--text);border:1px solid var(--line)!important}
+.status{text-align:center;min-height:18px;margin-top:12px;color:var(--muted);font-size:12px}
+.info{max-width:760px;margin:0 auto 18px;padding:0 20px;text-align:center;color:var(--muted);font-size:13px;line-height:1.6}
+@media(max-width:600px){.preview-grid{grid-template-columns:1fr}.action-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav container">
+    <a class="brand" href="index.html"><span class="brand-mark">TB</span><span>ToolBox</span></a>
+    <nav>
+      <a href="index.html#tools">Tools</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+    <button id="theme" class="icon-btn" aria-label="Toggle dark mode">☾</button>
+  </div>
+</header>
+
+<main class="tool-page">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="badge">📄 Free PDF Tool</div>
+      <h1>JPG to PDF<br><span>Converter</span></h1>
+      <p>Combine JPG or PNG images into one PDF directly in your browser.</p>
+    </div>
+  </section>
+
+  <p class="info">Your images stay in your browser. Nothing is uploaded to ToolBox.</p>
+
+  <section class="panel">
+    <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+    <label class="add-btn" for="fileInput">＋ Choose Images</label>
+
+    <div id="preview" class="preview-grid"></div>
+
+    <div class="action-row">
+      <button id="clearBtn" class="secondary" type="button">Clear</button>
+      <button id="convertBtn" class="primary" type="button" disabled>Convert to PDF</button>
+    </div>
+    <div id="status" class="status"></div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 ToolBox</span>
+  <span>Free • Fast • Easy to use</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const fileInput = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+const convertBtn = document.getElementById("convertBtn");
+const clearBtn = document.getElementById("clearBtn");
+const status = document.getElementById("status");
+const files = [];
+
+function render(){
+  preview.innerHTML = "";
+  files.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.className = "page-card";
+    card.innerHTML = `
+      <img src="${item.url}" alt="">
+      <div class="page-label" title="${item.file.name}">${index + 1}. ${item.file.name}</div>
+      <button class="remove-btn" type="button">Remove</button>
+    `;
+    card.querySelector("button").onclick = () => {
+      URL.revokeObjectURL(item.url);
+      files.splice(index, 1);
+      render();
+    };
+    preview.appendChild(card);
+  });
+  convertBtn.disabled = files.length === 0;
+}
+
+fileInput.addEventListener("change", () => {
+  [...fileInput.files].forEach(file => {
+    if (file.type.startsWith("image/")) {
+      files.push({file, url: URL.createObjectURL(file)});
+    }
+  });
+  fileInput.value = "";
+  status.textContent = files.length ? `${files.length} image${files.length === 1 ? "" : "s"} selected.` : "";
+  render();
+});
+
+clearBtn.onclick = () => {
+  files.forEach(item => URL.revokeObjectURL(item.url));
+  files.length = 0;
+  status.textContent = "";
+  render();
+};
+
+convertBtn.onclick = async () => {
+  if (!files.length) return;
+  convertBtn.disabled = true;
+  status.textContent = "Creating PDF…";
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({orientation:"p", unit:"mm", format:"a4"});
+    const pageW = 210, pageH = 297, margin = 10;
+    const maxW = pageW - margin * 2, maxH = pageH - margin * 2;
+
+    for (let i = 0; i < files.length; i++) {
+      if (i > 0) pdf.addPage();
+      const img = new Image();
+      img.src = files[i].url;
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+
+      const ratio = Math.min(maxW / img.naturalWidth, maxH / img.naturalHeight);
+      const w = img.naturalWidth * ratio;
+      const h = img.naturalHeight * ratio;
+      const x = (pageW - w) / 2;
+      const y = (pageH - h) / 2;
+
+      const format = files[i].file.type === "image/png" ? "PNG" : "JPEG";
+      pdf.addImage(img, format, x, y, w, h);
+      status.textContent = `Adding image ${i + 1} of ${files.length}…`;
+    }
+
+    pdf.save("toolbox-images.pdf");
+    status.textContent = "PDF created successfully.";
+  } catch (err) {
+    status.textContent = "Could not create the PDF. Please try again.";
+  } finally {
+    convertBtn.disabled = files.length === 0;
+  }
+};
+
+const theme = document.getElementById("theme");
+theme.onclick = () => {
+  document.body.classList.toggle("dark");
+  localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
+};
+if (localStorage.getItem("theme") === "dark") document.body.classList.add("dark");
+</script>
+</body>
+</html>
